@@ -1,27 +1,50 @@
+/* creation of a function that randomly return either rock, paper or scissors */
 function getComputerChoice(options) {
     return options[Math.floor(Math.random()*options.length)];
 }
 let options = ["rock", "paper", "scissors"];
 let computerSelection = getComputerChoice(options);
-let playerInput = prompt("Enter your choice; rock, paper or scissors to play against computer.");
-let playerSelection = playerInput.toLowerCase();
+
+
+/* creation of a function that returns the player's choice(rock, paper or scissors) */
+function getPlayerChoice() {
+    return playerChoice;
+}
+let playerChoice = prompt("Enter your choice(rock, paper or scissors)").toLowerCase();
+let playerSelection = getPlayerChoice();
+
+
+/* creation of a function that plays a single round of rock paper scissors */
 function playRound(playerSelection, computerSelection) {
-    if ((playerSelection=="rock"&&computerSelection=="scissors") | (playerSelection=="paper"&&computerSelection=="rock") | (playerSelection=="scissors"&&computerSelection=="paper")) {
-        return(playerWinStatement);
+    if ((playerSelection=="scissors" && computerSelection=="paper") |
+    (playerSelection=="rock" && computerSelection=="scissors") |
+    (playerSelection=="paper" && computerSelection=="rock")) {
+        return playerWinStatement;
     }
-    else if ((playerSelection=="rock"&&computerSelection=="paper") | (playerSelection=="paper"&&computerSelection=="scissors") | (playerSelection=="scissors"&&computerSelection=="rock")) {
-    return(computerWinStatement);
+
+    else if (playerSelection==computerSelection) {
+        return drawStatement;
     }
-    else if ((playerSelection=="rock"&&computerSelection=="rock") | (playerSelection=="paper"&&computerSelection=="paper") | (playerSelection=="scissors"&&computerSelection=="scissors")) {
-        return(drawStatement);
+
+    else if ((playerSelection=="paper" && computerSelection=="scissors") |
+    (playerSelection=="scissors" && computerSelection=="rock") |
+    (playerSelection=="rock" && computerSelection=="paper")) {
+        return computerWinStatement;
     }
+
     else {
-        return(somethingDifferent);
+        return "Please enter either rock, paper or scissors it does not matter whether or not it in lower case";
     }
 }
-let playerWinStatement = "You won! " + playerSelection + " beats " + computerSelection;
+let playerWinStatement = "You win! " + playerSelection + " beats " + computerSelection;
 let computerWinStatement = "You lose! " + computerSelection + " beats " + playerSelection;
-let drawStatement = "It is a draw! ";
-let somethingDifferent = "Wrong input! Please try again";
-let result = playRound(playerSelection, computerSelection);
-console.log(result);
+let drawStatement = "It is a draw!";
+
+
+/* creation of a function that plays five times */
+function game() {
+    for (let i=0; i<5; i++) {
+        return playRound(playerSelection, computerSelection);
+    }
+}
+console.log(game());
