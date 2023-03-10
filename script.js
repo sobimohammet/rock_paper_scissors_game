@@ -1,52 +1,58 @@
+let choiceBtn = document.querySelectorAll('.choice');
+let options = ["Rock", "Paper", "Scissors"];
+let playerSelection;
+let computerSelection;
 let a = 0;
 let b = 0;
-function game() {
-    for (let i = 0; i < 5; i++) {
-        let options = ["rock", "paper", "scissors"];
+
+
+choiceBtn.forEach(button => button.addEventListener("click", e => {
+    playerSelection = button.textContent;
+    getComputerChoice(options);
+    computerSelection = getComputerChoice(options);
+    
+
+    document.querySelector('#playerselection').textContent = playerSelection;
+    document.querySelector('#computerselection').textContent = computerSelection;
+
+    scoreControl();
+
+    document.querySelector('#playerscore').textContent = a;
+    document.querySelector('#computerscore').textContent = b;
+    
+
+    result();
+}))
 function getComputerChoice(options) {
     return options[Math.floor(Math.random()*options.length)];
 }
-let computerSelection = getComputerChoice(options);
-function getPlayerChoice() {
-    let playerChoice = prompt("Enter your selection");
-    return playerChoice;
-}
-let selection = getPlayerChoice();
-let playerSelection = selection.toLocaleLowerCase();
-let draw = "It's a draw, try again!";
-let win = "You win!" + " " + playerSelection + " beats " + computerSelection;
-let lose = "You lose! " + computerSelection + " beats " + playerSelection;
-let wrongSelection = "Wrong input! please try again!";
-function singleRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
-        return draw;
+function scoreControl() {
+    if ((playerSelection === "Scissors" && computerSelection === "Paper") || (playerSelection === "Rock" && computerSelection === "Scissors") || (playerSelection === "Paper" && computerSelection === "Rock")) {
+        a += 1;
     }
-    else if ((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "rock")) {
-        return win;
+    else if ((playerSelection === "Paper" && computerSelection === "Scissors") || (playerSelection === "Scissors" && computerSelection === "Rock") || (playerSelection === "Rock" && computerSelection === "Paper")) {
+        b += 1;
     }
-    else if ((playerSelection === "scissors" && computerSelection === "rock") || (playerSelection === "paper" && computerSelection === "scissors") || (playerSelection === "rock" && computerSelection === "paper")) {
-        return lose;
+    else if (playerSelection === computerSelection) {
+        return a;
     }
     else {
-        return wrongSelection;
+        console.log('Error');
     }
 }
-console.log(singleRound(playerSelection, computerSelection));
-if (singleRound(playerSelection, computerSelection) === win) {
-    a = a + 1;
-}
-else if (singleRound(playerSelection, computerSelection) === lose) {
-    b = b + 1;
-}
+function result() {
+    if (a+b === 10) {
+        if (a>b) {
+            document.querySelector('#result').textContent = "You win! score is You: " + a + " Computer: " + b;
+        }
+        else if (a<b) {
+            document.querySelector('#result').textContent = "You lose! score is You: " + a + " Computer: " + b;
+        }
+        else {
+            document.querySelector('#result').textContent = "It's a draw! score is You: " + a + " Computer " + b;
+        }
     }
 }
-game();
-if (a > b) {
-    console.log("You win! score is You: " + a + " Computer: " + b);
-}
-else if (a < b) {
-    console.log("You lose! score is You: " + a + " Computer: " + b);
-}
-else if (a === b) {
-    console.log("It's a draw! score is  You: " + a + " Computer: " + b);
+function refreshPage() {
+    window.location.reload(true);
 }

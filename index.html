@@ -4,10 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js"></script>
-    <title>Document</title>
+    <script src="script.js" defer></script>
+    <link href="style.css" rel="stylesheet"/>
+    <title>DOM</title>
 </head>
 <body>
-    
+    <div id="header">
+        <h1>Rock-Paper-Scissors Game</h1>
+        <h2>Human vs Machine</h2>
+    </div>
+    <br/><br/>
+    <div id="container">
+        <div id="child1">
+            <img id="rockimg" src="rock.png"/>
+        </div>
+        <div id="child2">
+            <img id="paperimg" src="paper1.png"/>
+        </div>
+        <div id="child3">
+            <img id="scissorsimg" src="scissors1.png"/>
+        </div>
+    </div>
+    <br/><br/>
+    <div id="btns">
+        <button id="rock" class="choice">Rock</button>
+        <button id="paper" class="choice">Paper</button>
+        <button id="scissors" class="choice">Scissors</button>
+    </div>
+    <br/><br/>
+    <br/><br/>
+    <h1>RESULTS</h1>
+    <div id="container1">
+        <div id="score">
+            <div id="score1">
+                <h3>YOU</h3>
+                <br/>
+                <div id="playerselection"></div>
+                <br/>
+                <div id="playerscore"></div>
+            </div>
+            <div id="score2">
+                <h3>COMPUTER</h3>
+                <br/>
+                <div id="computerselection"></div>
+                <br/>
+                <div id="computerscore"></div>
+            </div>
+        </div>
+    </div>
+    <br/><br/>
+    <div id="outcome"></div>
+    <br/><br/>
+    <div id="result"></div>
+    <br/><br/>
+    <div id="rstart">
+        <a href="#">
+            <button id="restart" onclick="refreshPage()">RESTART</button>
+        </a>
+    </div>
 </body>
 </html>

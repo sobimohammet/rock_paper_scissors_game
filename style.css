@@ -1,0 +1,83 @@
+#greeting {
+    color: blue;
+}
+h1 {
+    text-align: center;
+    font-size: 35px;
+}
+#container, #score, #btns {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+#child1, #child2, #child3, #score1, #score2, .choice {
+    flex: 1 1 auto;
+}
+img {
+    width: 15vw;
+    height: 20vw;
+}
+button {
+    width: 100px;
+    height: 25px;
+    border-bottom: none;
+    border-left: none;
+    background-color: coral;
+}
+button:hover {
+    background-color: rgb(235, 157, 129);
+    border-right: none;
+    border-top: none;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+}
+#rstart {
+    text-align: center;
+}
+#restart {
+    width: 150px;
+    height: 50px;
+    border-bottom: none;
+    border-left: none;
+    background-color: coral;
+}
+#restart:hover {
+    background-color: rgb(235, 157, 129);
+    border-right: none;
+    border-top: none;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+}
+button:focus {
+    background-color: green;
+}
+* {
+    font-family: purisa;
+    font-size: 15px;
+}
+#outcome {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+    font-size: 30px;
+    font-family: Ani;
+    letter-spacing: 5px;
+    padding: 5px;
+}
+#header {
+    margin: 20px 20vw;
+    border-top: 5px solid coral;
+    border-right: 5px solid coral;
+    border-bottom: none;
+    border-left: none;
+    background-color: midnightblue;
+    color: coral;
+}
+.choice {
+    width: 150px;
+    margin: 10px 10vw;
+}
+#result {
+    text-align: center;
+}
